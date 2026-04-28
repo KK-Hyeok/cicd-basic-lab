@@ -19,7 +19,7 @@ jobs:
     defaults:
       run:
         working-directory: ./cicd-basic-lab
-        
+
     # 빈칸 3: cd Job에서 참조할 Artifact 이름을 outputs로 노출
     outputs:
       artifact_name: ${{ steps.set-name.outputs.value }}
@@ -37,7 +37,7 @@ jobs:
           cache: maven
 
       - name: Maven 빌드
-        run: mvn -B package -DskipTests --file pom.xml
+        run: mvn -B package -DskipTests
 
       - name: JAR 파일명 정리
         run: mv ./target/*.jar ./target/app.jar
@@ -54,7 +54,7 @@ jobs:
           # 빈칸 6: 업로드할 파일 경로
           path: ./cicd-basic-lab/target/app.jar
           retention-days: 1
-
+          
   cd:
     # 빈칸 7: ci Job 완료 후 실행되도록 의존성 선언
     needs: ci
@@ -70,7 +70,7 @@ jobs:
 
       - name: SCP로 EC2에 JAR 전송
         # 빈칸 9: SCP 액션 (소유자/저장소 형식)
-        uses: appleboy/ssh-action@v1
+        uses: appleboy/scp-action@v1
         with:
           # 빈칸 10: 등록한 secrets 3개를 각각 참조
           host: ${{ secrets.EC2_HOST }}
