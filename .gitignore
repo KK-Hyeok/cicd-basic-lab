@@ -92,9 +92,6 @@ tmp/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-<<<<<<< HEAD
-/.metadata/
-=======
 
 ### macOS ###
 # General
@@ -219,4 +216,3 @@ gradle-app.setting
 *.hprof
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,windows,macos,maven,gradle,java,visualstudiocode
->>>>>>> 402223d6afc8eff518fbda41a28d0703e579db07
